@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="resend_intent">Search</string>
+    <string name="reset_intent">Reset</string>
+</resources>

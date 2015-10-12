@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="?android:attr/listPreferredItemHeight"
+	android:text="Medium Text"
+	android:textAppearance="?android:attr/textAppearanceMedium"
+	android:layout_width="wrap_content"
+	android:id="@+id/smalltextview"
+	android:textColor="#FFFFFF"
+	android:shadowColor="#0000FF"
+	android:shadowDx="2.0"
+	android:shadowDy="2.0"
+	android:alpha="1.0"/>
+
