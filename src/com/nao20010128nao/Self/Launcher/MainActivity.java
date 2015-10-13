@@ -52,10 +52,7 @@ public class MainActivity extends Activity implements ExpandableListView.OnChild
 								int groupPosition, int childPosition, long id) {
 		Log.d("DEBUG","groupPosition:"+groupPosition);
 		Log.d("DEBUG","childPosition:"+childPosition);
-		//クリックされた場所が持っている情報を取得
 		ExpandableListAdapter adapter = parent.getExpandableListAdapter();
-
-		// クリックされた場所の情報の詳細を取得
 		Map<String, String> item = (Map<String, String>) adapter.getChild(groupPosition, childPosition);
 		if(childPosition!=0)return false;
 		else{
@@ -96,21 +93,13 @@ public class MainActivity extends Activity implements ExpandableListView.OnChild
 		}
 		SimpleExpandableListAdapter adapter = new SimpleExpandableListAdapter(
 			this.getApplicationContext(),
-			// Group(親)のリスト
 			groupList,
-			// Group(親)のレイアウト
-			/*android.*/R.layout.simple_expandable_list_item_1_custom,
-			// Group(親)のリストで表示するMapのキー
+			R.layout.simple_expandable_list_item_1_custom,
 			new String []{"GROUP_TITLE"},
-			// Group(親)のレイアウト内での文字を表示するTextViewのID
 			new int []{android.R.id.text1},
-			// Child(子)のリスト
 			childList,
-			// Child(子)のレイアウト
-			/*android.*/R.layout.simple_expandable_list_item_2_custom,
-			// Child(子)のリストで表示するMapのキー
+			R.layout.simple_expandable_list_item_2_custom,
 			new String []{"CHILD_TITLE", "SUMMARY"},
-			// Child(子)のレイアウト内での文字を表示するTextViewのID
 			new int []{android.R.id.text1, android.R.id.text2}
 		);
 		elv.setAdapter(adapter);
