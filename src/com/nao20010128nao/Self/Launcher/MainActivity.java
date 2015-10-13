@@ -87,7 +87,6 @@ public class MainActivity extends Activity implements ExpandableListView.OnChild
 				child.put("CHILD_TITLE", j);
 				child.put("SUMMARY", "");
 				childElements.add(child);
-				child = new HashMap<String, String>();
 			}
 			childList.add(childElements);
 		}
