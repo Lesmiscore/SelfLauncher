@@ -7,7 +7,7 @@ import android.widget.*;
 import java.util.*;
 import android.content.pm.*;
 import android.content.*;
-import com.nao20010128nao.ToolBox.*;
+import com.nao20010128nao.SpoofBrowser.classes.*;
 import android.util.*;
 import android.net.*;
 
