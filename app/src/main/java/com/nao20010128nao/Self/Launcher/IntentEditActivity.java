@@ -1,13 +1,14 @@
 package com.nao20010128nao.Self.Launcher;
-import android.app.*;
-import android.os.*;
-import uk.co.ashtonbrsc.intentexplode.widget.*;
-import android.content.*;
-import android.view.*;
-import android.widget.*;
-import android.text.*;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
+import android.view.View;
+import android.widget.Button;
 
-public class IntentEditActivity extends Activity implements View.OnClickListener{
+import uk.co.ashtonbrsc.intentexplode.widget.BlockEnterEditText;
+
+public class IntentEditActivity extends AppCompatActivity implements View.OnClickListener{
 	
 	BlockEnterEditText action,category,data;
 	Button reset,search;

@@ -1,36 +1,57 @@
 package com.nao20010128nao.Self.Launcher;
 
-import android.app.*;
-import android.content.*;
-import android.content.pm.*;
-import android.net.*;
-import android.os.*;
-import android.util.*;
-import android.view.*;
-import android.widget.*;
-import java.util.*;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
+import android.widget.SimpleExpandableListAdapter;
+import android.widget.TextView;
 
-public class MainActivity extends Activity implements ExpandableListView.OnChildClickListener,View.OnClickListener {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class MainActivity extends AppCompatActivity implements ExpandableListView.OnChildClickListener {
 	String action=Intent.ACTION_MAIN,category=Intent.CATEGORY_LAUNCHER,data=null;
 	final int editorResult=20;
-	/** Called when the activity is first created. */
 	ExpandableListView elv;
-	TextView title;
-    @Override
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main3);
 		elv = (ExpandableListView)findViewById(R.id.lnList);
 		updateList();
 		elv.setOnChildClickListener(this);
-		title = (TextView)findViewById(R.id.title);
-		title.setOnClickListener(this);
-		try {
-			getActionBar().hide();
-		} catch (Throwable ex) {
-			ex.printStackTrace();
-		}
     }
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuItem item=menu.add(Menu.NONE,0,0,R.string.editFilter);
+		MenuItemCompat.setShowAsAction(item,MenuItemCompat.SHOW_AS_ACTION_ALWAYS);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch(item.getItemId()){
+			case 0:
+				openEditor();
+				return true;
+		}
+		return false;
+	}
+
 	public List<ResolveInfo> getLauncheableActivityList(PackageManager packageManager, Intent intent) {
 		if (intent == null) {
 			intent = new Intent(action, null);
@@ -64,7 +85,7 @@ public class MainActivity extends Activity implements ExpandableListView.OnChild
 				i.setClassName(p, c);
 				i.addCategory(category);
 				if (data != null)i.setData(Uri.parse(data));
-				i.setFlags(i.getFlags() | i.FLAG_ACTIVITY_BROUGHT_TO_FRONT | i.FLAG_ACTIVITY_NEW_TASK | i.FLAG_ACTIVITY_CLEAR_TOP);
+				i.setFlags(i.getFlags() | Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(i);
 				return true;
 			} catch (Throwable ex) {ex.printStackTrace();return false;}
@@ -129,12 +150,6 @@ public class MainActivity extends Activity implements ExpandableListView.OnChild
 				//Log.d("DEBUG","action:"+action.length()+"/category:"+category.length()+"/data:"+data.length());
 				updateList();
 				break;
-		}
-	}
-	@Override
-	public void onClick(View v) {
-		if (v == title) {
-			openEditor();
 		}
 	}
 }
