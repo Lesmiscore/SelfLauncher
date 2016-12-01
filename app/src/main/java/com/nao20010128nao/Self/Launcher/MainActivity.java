@@ -100,7 +100,6 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
 						i.activityInfo.name}) {
 						Map<String, String> child = new HashMap<String, String>();
 						child.put("CHILD_TITLE", j);
-						child.put("SUMMARY", "");
 						childElements.add(child);
 					}
 					childList.add(childElements);
@@ -120,8 +119,8 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
 					new int []{android.R.id.text1},
 					childList,
 					R.layout.simple_expandable_list_item_2_custom,
-					new String []{"CHILD_TITLE", "SUMMARY"},
-					new int []{android.R.id.text1, android.R.id.text2}
+					new String []{"CHILD_TITLE"},
+					new int []{android.R.id.text1}
 				);
 				elv.setAdapter(adapter);
 				loading.setVisibility(View.GONE);

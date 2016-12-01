@@ -6,23 +6,14 @@
 	android:paddingTop="2dip"
 	android:paddingBottom="2dip"
 	android:paddingStart="?android:attr/expandableListPreferredItemPaddingLeft"
-	android:mode="twoLine">
+	android:mode="twoLine"
+	android:gravity="center_vertical">
 
 	<TextView
 		android:id="@android:id/text1"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="6dip"
 		android:textAppearance="?android:attr/textAppearanceMedium"
-		android:textAlignment="viewStart"/>
-
-	<TextView
-		android:id="@android:id/text2"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_below="@android:id/text1"
-		android:layout_alignStart="@android:id/text1"
-		android:textAppearance="?android:attr/textAppearanceSmall"
 		android:textAlignment="viewStart"/>
 
 </TwoLineListItem>
