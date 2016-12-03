@@ -68,12 +68,12 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
 		ExpandableListAdapter adapter = parent.getExpandableListAdapter();
 		switch(childPosition){
 			case 0:
-				Map<String, String> pn = (Map<String, String>)adapter.getChild(groupPosition, 0);
-				String p=pn.get("pkgName");
-				String c=pn.get("actClas");
+				Map<String, String> itemData = (Map<String, String>)adapter.getChild(groupPosition, 0);
+				String packageName=itemData.get("pkgName");
+				String activityClass=itemData.get("actClas");
 				try {
 					Intent i=new Intent(action);
-					i.setClassName(p, c);
+					i.setClassName(packageName, activityClass);
 					i.addCategory(category);
 					if (data != null)i.setData(Uri.parse(data));
 					i.setFlags(i.getFlags() | Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
