@@ -5,51 +5,64 @@
 	android:layout_height="fill_parent"
 	android:orientation="vertical">
 
-	<uk.co.ashtonbrsc.intentexplode.widget.UnderlinedTextView
-		style="@style/TextHeader"
+	<ScrollView
+		android:layout_height="match_parent"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="ACTION"/>
+		android:layout_weight="1.0">
 
-	<uk.co.ashtonbrsc.intentexplode.widget.BlockEnterEditText
-		android:id="@+id/action"
-		style="@style/EditTextNoSuggestion"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:hint="null"/>
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:orientation="vertical">
 
-	<uk.co.ashtonbrsc.intentexplode.widget.UnderlinedTextView
-		style="@style/TextHeader"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="DATA"/>
+			<uk.co.ashtonbrsc.intentexplode.widget.UnderlinedTextView
+				style="@style/TextHeader"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="ACTION"/>
 
-	<uk.co.ashtonbrsc.intentexplode.widget.BlockEnterEditText
-		android:id="@+id/data"
-		style="@style/EditTextNoSuggestion"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:hint="null"/>
+			<uk.co.ashtonbrsc.intentexplode.widget.BlockEnterEditText
+				android:id="@+id/action"
+				style="@style/EditTextNoSuggestion"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:hint="null"/>
 
-	<uk.co.ashtonbrsc.intentexplode.widget.UnderlinedTextView
-		android:id="@+id/categories_header"
-		style="@style/TextHeader"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="CATEGORY"/>
+			<uk.co.ashtonbrsc.intentexplode.widget.UnderlinedTextView
+				style="@style/TextHeader"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="DATA"/>
 
-	<uk.co.ashtonbrsc.intentexplode.widget.BlockEnterEditText
-		android:id="@+id/category"
-		style="@style/EditTextNoSuggestion"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:hint="null"/>
+			<uk.co.ashtonbrsc.intentexplode.widget.BlockEnterEditText
+				android:id="@+id/data"
+				style="@style/EditTextNoSuggestion"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:hint="null"/>
+
+			<uk.co.ashtonbrsc.intentexplode.widget.UnderlinedTextView
+				android:id="@+id/categories_header"
+				style="@style/TextHeader"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="CATEGORY"/>
+
+			<uk.co.ashtonbrsc.intentexplode.widget.BlockEnterEditText
+				android:id="@+id/category"
+				style="@style/EditTextNoSuggestion"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:hint="null"/>
+
+		</LinearLayout>
+
+	</ScrollView>
 
 	<LinearLayout
 		style="?android:attr/buttonBarStyle"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:layout_weight="0"
 		android:orientation="horizontal">
 
 		<Button

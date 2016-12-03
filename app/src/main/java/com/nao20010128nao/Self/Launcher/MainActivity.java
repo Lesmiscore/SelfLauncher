@@ -66,21 +66,25 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
 		Log.d("DEBUG", "childPosition:" + childPosition);
 		ExpandableListAdapter adapter = parent.getExpandableListAdapter();
 		Map<String, String> item = (Map<String, String>) adapter.getChild(groupPosition, childPosition);
-		if (childPosition != 0)return false;
-		else {
-			Map<String, String> pn = (Map<String, String>)adapter.getChild(groupPosition, 1);
-			Map<String, String> cn = (Map<String, String>)adapter.getChild(groupPosition, 2);
-			String p=pn.get("CHILD_TITLE");
-			String c=cn.get("CHILD_TITLE");
-			try {
-				Intent i=new Intent(action);
-				i.setClassName(p, c);
-				i.addCategory(category);
-				if (data != null)i.setData(Uri.parse(data));
-				i.setFlags(i.getFlags() | Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				startActivity(i);
-				return true;
-			} catch (Throwable ex) {ex.printStackTrace();return false;}
+		switch(childPosition){
+			case 0:
+				Map<String, String> pn = (Map<String, String>)adapter.getChild(groupPosition, 0);
+				String p=pn.get("pkgName");
+				String c=pn.get("actClas");
+				try {
+					Intent i=new Intent(action);
+					i.setClassName(p, c);
+					i.addCategory(category);
+					if (data != null)i.setData(Uri.parse(data));
+					i.setFlags(i.getFlags() | Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+					startActivity(i);
+					return true;
+				} catch (Throwable ex) {
+					ex.printStackTrace();
+					return false;
+				}
+			default:
+				return false;
 		}
     }
 	public void updateList() {
@@ -102,6 +106,8 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
 						child.put("CHILD_TITLE", j);
 						childElements.add(child);
 					}
+					childElements.get(0).put("pkgName",i.activityInfo.packageName);
+					childElements.get(0).put("actClas",i.activityInfo.name);
 					childList.add(childElements);
 				}
 				Map<List<Map<String, String>>,List<List<Map<String, String>>>> resultGen=new HashMap<>();
