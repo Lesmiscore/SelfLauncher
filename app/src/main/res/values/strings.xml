@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="hello">Hello World, MainActivity!</string>
     <string name="app_name">SelfLauncher</string>
     <string name="openThis">Open this</string>
     <string name="editFilter">Edit Filter</string>
-	<string name="failedStart">Failed to start</string>
+	<string name="startFailed">Failed to start</string>
+	<string name="resend_intent">Search</string>
+    <string name="reset_intent">Reset</string>
 </resources>
