@@ -5,4 +5,5 @@
     <string name="app_name">SelfLauncher</string>
     <string name="openThis">Open this</string>
     <string name="editFilter">Edit Filter</string>
+	<string name="failedStart">Failed to start</string>
 </resources>

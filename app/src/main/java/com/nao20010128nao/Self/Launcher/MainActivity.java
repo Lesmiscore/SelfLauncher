@@ -11,6 +11,7 @@ import android.view.*;
 import android.widget.*;
 import java.util.*;
 import android.text.*;
+import android.support.design.widget.*;
 
 public class MainActivity extends AppCompatActivity implements ExpandableListView.OnChildClickListener {
 	String action=Intent.ACTION_MAIN,category=Intent.CATEGORY_LAUNCHER,data=null;
@@ -80,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
 					return true;
 				} catch (Throwable ex) {
 					ex.printStackTrace();
+					Snackbar.make(findViewById(android.R.id.content),R.string.startFailed,Snackbar.LENGTH_SHORT).show();
 					return false;
 				}
 			default:
