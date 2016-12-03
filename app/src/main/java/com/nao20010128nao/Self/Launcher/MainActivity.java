@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
 		Log.d("DEBUG", "groupPosition:" + groupPosition);
 		Log.d("DEBUG", "childPosition:" + childPosition);
 		ExpandableListAdapter adapter = parent.getExpandableListAdapter();
-		Map<String, String> item = (Map<String, String>) adapter.getChild(groupPosition, childPosition);
 		switch(childPosition){
 			case 0:
 				Map<String, String> pn = (Map<String, String>)adapter.getChild(groupPosition, 0);
